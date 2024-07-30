@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <cstdlib>
+#include "Form.hpp"
 
 using std::string;
 #define MAX_GRADE 1
@@ -37,6 +38,8 @@ class Bureaucrat {
         public:
             const char* what() const throw();
         };
+
+        void signForm(Form f);
 };
 
 std::ostream &operator<<(std::ostream& os, Bureaucrat const &x);

@@ -49,3 +49,18 @@ std::ostream &operator<<(std::ostream& os, Bureaucrat const &x) {
     os << x.getName() <<  " bureaucrat grade "  << x.getGrade();
     return os;
 }
+
+void Bureaucrat::signForm(Form f) {
+    if (f.getFormState() == true) {
+        std::cout << "The form is already signed !\n";
+        return;
+    }
+    if (this->getGrade() >= f.getSigneGrade())   {
+        std::cout << this->getName() << " signed " << f.getName() << "\n";
+        f.setSignature(true);
+        }
+    else
+        std::cout << this->getName() << "  couldn’t sign " << f.getName() << "because grade is too low\n";
+        
+
+}

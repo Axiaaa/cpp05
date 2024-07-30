@@ -20,10 +20,21 @@ class Form {
     Form& operator=(const Form& rhs);
 
     void beSigned(Bureaucrat b);
-    short getSigneGrade();
-    short getExecGrade();
-    string getName();
-    const bool getFormState();
+    short getSigneGrade() const;
+    short getExecGrade()const ;
+    string getName() const ;
+    const bool getFormState() const;
+    void setSignature(bool state);
+
+    class GradeTooHighException : std::exception {
+        public :
+        const char* what() const throw();
+    };
+
+    class GradeTooLowException : std::exception {
+        public :
+        const char* what() const throw();
+    };
 };
 
 std::ostream &operator<<(std::ostream& os, Form const &x);
