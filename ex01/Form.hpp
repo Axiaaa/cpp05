@@ -1,7 +1,11 @@
-#pragma once
+#ifndef FORM_HPP
+#define FORM_HPP
 
+#include <iostream>
 #include "Bureaucrat.hpp"
+using std::string;
 
+class Bureaucrat;
 class Form {
 
     private : 
@@ -23,7 +27,7 @@ class Form {
     short getSigneGrade() const;
     short getExecGrade()const ;
     string getName() const ;
-    const bool getFormState() const;
+    bool getFormState() const;
     void setSignature(bool state);
 
     class GradeTooHighException : std::exception {
@@ -38,3 +42,5 @@ class Form {
 };
 
 std::ostream &operator<<(std::ostream& os, Form const &x);
+
+#endif

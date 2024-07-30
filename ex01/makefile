@@ -1,10 +1,10 @@
 NAME = Bureaucrat
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 DIR = .build
-INC = Bureaucrat.hpp 
+INC = Bureaucrat.hpp Form.hpp
 OBJS := $(addprefix $(DIR)/, $(OBJS))
 
 

@@ -1,13 +1,12 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+#include "Form.hpp"
 #include <iostream>
 #include <cstdlib>
-#include "Form.hpp"
 
 using std::string;
-#define MAX_GRADE 1
-#define MIN_GRADE 150
 
+class Form;
 class Bureaucrat {
 
     private :
