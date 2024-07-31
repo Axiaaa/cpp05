@@ -37,7 +37,7 @@ void Form::beSigned(Bureaucrat b) {
 short Form::getExecGrade() const { return this->_execGrade; }
 short Form::getSigneGrade() const { return this->_signGrade; }
 string Form::getName() const { return this->_name; }
-bool Form::getFormState() const{ return this->_isSigned; }
+bool Form::getFormState() const { return this->_isSigned; }
 
 
 std::ostream &operator<<(std::ostream& os, Form const &x) {

@@ -22,10 +22,11 @@ int main() {
     b1.signForm(f1);
     b2.signForm(f2);
     b3.signForm(f3);
-    b3.gradeDecr();
     b3.signForm(f3);
-
-
+    std::cout << f3 << std::endl;
+    b3.gradeDecr();
+    f3.setSignature(false);
+    b3.signForm(f3);
 
     return 0;
 }
