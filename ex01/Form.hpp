@@ -23,12 +23,12 @@ class Form {
     Form(string name, short execGrade, short signGrade);
     Form& operator=(const Form& rhs);
 
-    void beSigned(Bureaucrat b);
-    short getSigneGrade() const;
-    short getExecGrade()const ;
-    string getName() const ;
-    bool getFormState() const;
-    void setSignature(bool state);
+    void    beSigned(Bureaucrat b);
+    short   getSigneGrade() const;
+    short   getExecGrade()const;
+    string  getName() const;
+    bool    getFormState() const;
+    void    setSignature(bool state);
 
     class GradeTooHighException : std::exception {
         public :

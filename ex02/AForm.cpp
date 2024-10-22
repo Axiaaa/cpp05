@@ -1,5 +1,9 @@
 #include "AForm.hpp"
 
+AForm::AForm(short signGrade, short execGrade, string name, string target) : 
+_signGrade(signGrade), _execGrade(execGrade), _name(name), _target(target), _isSigned(false) {}
+
+AForm::~AForm() {}
 
 const char* AForm::GradeTooHighException::what() const throw() {
     return "The AForm grade is too high !\n";
@@ -9,16 +13,18 @@ const char* AForm::GradeTooLowException::what() const throw() {
     return "The AForm grade is too low !\n";
 }
 
-void AForm::beSigned(Bureaucrat b) { 
+void AForm::beSigned(Bureaucrat &b) { 
     if (b.getGrade() > this->_signGrade)
         throw GradeTooLowException();
     this->_isSigned = true;
 }
 
-short AForm::getExecGrade() const { return this->_execGrade; }
-short AForm::getSigneGrade() const { return this->_signGrade; }
-string AForm::getName() const { return this->_name; }
-bool AForm::getFormState() const { return this->_isSigned; }
+short AForm::getExecGrade()     const { return this->_execGrade; }
+short AForm::getSigneGrade()    const { return this->_signGrade; }
+bool AForm::getFormState()      const { return this->_isSigned; }
+string AForm::getTarget()       const { return this->_target; }
+string AForm::getName()         const { return this->_name; }
+
 
 
 std::ostream &operator<<(std::ostream& os, AForm const &x) {

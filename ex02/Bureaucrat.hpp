@@ -1,12 +1,12 @@
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
-#include "Form.hpp"
+    #define BUREAUCRAT_HPP
+#include "AForm.hpp"
 #include <iostream>
 #include <cstdlib>
 
 using std::string;
 
-class Form;
+class AForm;
 class Bureaucrat {
 
     private :
@@ -27,6 +27,8 @@ class Bureaucrat {
         short getGrade() const;
         void gradeIncr();
         void gradeDecr();
+        void signForm(AForm &f);
+        void executeForm(AForm const & form);
 
         class GradeTooHighException : std::exception {
         public:
@@ -38,7 +40,11 @@ class Bureaucrat {
             const char* what() const throw();
         };
 
-        void signForm(Form &f);
+        class FormNotSigned : std::exception { 
+            public:
+                const char* what() const throw();
+        };
+        
 };
 
 std::ostream &operator<<(std::ostream& os, Bureaucrat const &x);

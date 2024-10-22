@@ -1,26 +1,31 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+    #define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 using std::string;
 
+
 class Bureaucrat;
 class AForm {
 
     private : 
-    bool _isSigned;
-    const string _name;
-    const short _signGrade;
-    const short _execGrade;
+        short _signGrade;
+        short _execGrade;
+        string _name;
+        string _target;
+        bool _isSigned;
 
 
     public : 
     
-    void beSigned(Bureaucrat b);
+    AForm(short signGrade, short execGrade, string name, string target);
+    virtual ~AForm();
+    void beSigned(Bureaucrat &b);
     short getSigneGrade() const;
     short getExecGrade()const ;
     string getName() const ;
+    string getTarget() const;
     bool getFormState() const;
     void setSignature(bool state);
     virtual void execute(Bureaucrat const & executor) const = 0;
@@ -34,8 +39,9 @@ class AForm {
         public :
         const char* what() const throw();
     };
+
 };
 
-std::ostream &operator<<(std::ostream& os, Form const &x);
+std::ostream &operator<<(std::ostream& os, AForm const &x);
 
 #endif

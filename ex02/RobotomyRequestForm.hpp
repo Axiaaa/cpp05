@@ -1,14 +1,16 @@
-#include "AForm.hpp"
 
-class RobotomyRequestForm : AForm {
+#include "AForm.hpp"
+#include <fstream>
+using std::ofstream;
+
+class RobotomyRequestForm : public AForm {
 
     public : 
     RobotomyRequestForm();
+    RobotomyRequestForm(string target);
+    RobotomyRequestForm(const RobotomyRequestForm &copy);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm &rhs);
     ~RobotomyRequestForm();
-    RobotomyRequestForm(const RobotomyRequestForm&);
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs); 
-
-    virtual void execute(Bureaucrat const & executor) const;
-
-
+    
+    void execute(Bureaucrat const & executor) const;
 };

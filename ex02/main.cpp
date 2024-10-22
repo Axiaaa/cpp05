@@ -1,32 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/01 10:30:36 by tblaase           #+#    #+#             */
+/*   Updated: 2024/10/22 23:39:19 by lcamerly         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-int main() {
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-    //Test 
-    Bureaucrat b1(1, "Bureaucrat1");
-    Bureaucrat b2(150, "Bureaucrat2");
-    Bureaucrat b3(75, "Bureaucrat3");
-
-    Form f1("Form1", 1, 1);
-    Form f2("Form2", 150, 150);
-    Form f3("Form3", 75, 75);
-
-    std::cout << b1 << std::endl;
-    std::cout << b2 << std::endl;
-    std::cout << b3 << std::endl;
-
-    std::cout << f1 << std::endl;
-    std::cout << f2 << std::endl;
-    std::cout << f3 << std::endl;
-
-    b1.signForm(f1);
-    b2.signForm(f2);
-    b3.signForm(f3);
-    b3.signForm(f3);
-    std::cout << f3 << std::endl;
-    b3.gradeDecr();
-    f3.setSignature(false);
-    b3.signForm(f3);
-
-    return 0;
+int main(void)
+{
+	{
+		Bureaucrat *a = new Bureaucrat(5, "bob");
+		AForm *b = new PresidentialPardonForm("Joe biden");
+		AForm *c = new RobotomyRequestForm("Donald duck");
+		AForm *d = new ShrubberyCreationForm("Gooy aah form");
+		try
+		{
+			a->signForm(*b);
+			a->executeForm(*b);
+			a->signForm(*c);
+			a->executeForm(*c);
+			a->signForm(*d);
+			a->executeForm(*d);
+		}
+		catch(Bureaucrat::GradeTooLowException &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		catch(Bureaucrat::FormNotSigned &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		delete a;
+		delete b;
+		delete c;
+		delete d;
+	}
 }
