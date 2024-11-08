@@ -28,16 +28,17 @@ const char* Form::GradeTooLowException::what() const throw() {
     return "The form grade is too low !\n";
 }
 
-void Form::beSigned(Bureaucrat b) { 
+void Form::beSigned(const Bureaucrat &b) { 
     if (b.getGrade() > this->_signGrade)
-        throw GradeTooLowException();
-    this->_isSigned = true;
+        throw Form::GradeTooLowException();
+    if (this->_isSigned == false)
+        this->_isSigned = true;
 }
 
-short Form::getExecGrade() const { return this->_execGrade; }
+short Form::getExecGrade()  const { return this->_execGrade; }
 short Form::getSigneGrade() const { return this->_signGrade; }
-string Form::getName() const { return this->_name; }
-bool Form::getFormState() const { return this->_isSigned; }
+string Form::getName()      const { return this->_name; }
+bool Form::getFormState()   const { return this->_isSigned; }
 
 
 std::ostream &operator<<(std::ostream& os, Form const &x) {

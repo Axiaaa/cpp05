@@ -9,10 +9,10 @@ class Bureaucrat;
 class Form {
 
     private : 
-    bool _isSigned;
-    const string _name;
-    const short _signGrade;
-    const short _execGrade;
+    bool            _isSigned;
+    const string    _name;
+    const short     _signGrade;
+    const short     _execGrade;
 
 
     public : 
@@ -23,21 +23,21 @@ class Form {
     Form(string name, short execGrade, short signGrade);
     Form& operator=(const Form& rhs);
 
-    void    beSigned(Bureaucrat b);
+    void    beSigned(const Bureaucrat &b);
     short   getSigneGrade() const;
-    short   getExecGrade()const;
-    string  getName() const;
-    bool    getFormState() const;
+    short   getExecGrade()  const;
+    string  getName()       const;
+    bool    getFormState()  const;
     void    setSignature(bool state);
 
-    class GradeTooHighException : std::exception {
+    class GradeTooHighException : public std::exception {
         public :
-        const char* what() const throw();
+            const char* what() const throw();
     };
 
-    class GradeTooLowException : std::exception {
+    class GradeTooLowException : public std::exception {
         public :
-        const char* what() const throw();
+            const char* what() const throw();
     };
 };
 

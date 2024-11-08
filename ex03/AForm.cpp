@@ -1,10 +1,5 @@
 #include "AForm.hpp"
 
-AForm::AForm(short signGrade, short execGrade, string name, string target) : 
-_signGrade(signGrade), _execGrade(execGrade), _name(name), _target(target), _isSigned(false) {}
-
-AForm::~AForm() {}
-
 const char* AForm::GradeTooHighException::what() const throw() {
     return "The AForm grade is too high !\n";
 }
@@ -12,6 +7,12 @@ const char* AForm::GradeTooHighException::what() const throw() {
 const char* AForm::GradeTooLowException::what() const throw() {
     return "The AForm grade is too low !\n";
 }
+
+AForm::AForm(short signGrade, short execGrade, string name, string target) : 
+_signGrade(signGrade), _execGrade(execGrade), _name(name), _target(target), _isSigned(false) {}
+
+AForm::~AForm() {}
+
 
 void AForm::beSigned(Bureaucrat &b) { 
     if (b.getGrade() > this->_signGrade)

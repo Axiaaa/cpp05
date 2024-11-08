@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm(25, 5, "default", "default target") {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm(145, 137, "default", "default target") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(string target) : AForm(25, 5, "ShrubberyCreationForm", target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(string target) : AForm(145, 137, "ShrubberyCreationForm", target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 
@@ -18,7 +18,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const { 
     (void)executor;
-    ofstream MyFile("_shrubbery");
+    string s = this->getTarget() + "_shrubbery";
+    ofstream MyFile(s.c_str());
     MyFile <<  "                              \n"
     "     ,,,.   ,@@@@@@/@@,  .oo8888o.        \n"
     " ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o       \n"

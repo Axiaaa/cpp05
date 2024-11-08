@@ -11,29 +11,29 @@ class Bureaucrat {
 
     private :
         const string _name;
-        short _grade;
+        short       _grade;
 
     public :
 
         Bureaucrat();
         Bureaucrat(short grade, string name);
-        Bureaucrat(short grade);
         Bureaucrat(string name);
+        Bureaucrat(short grade);
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat&);
         Bureaucrat& operator=(const Bureaucrat& rhs);
 
-        string getName() const;
-        short getGrade() const;
-        void gradeIncr();
-        void gradeDecr();
+        string  getName() const;
+        short   getGrade() const;
+        void    gradeIncr();
+        void    gradeDecr();
 
-        class GradeTooHighException : std::exception {
+        class GradeTooHighException : public std::exception {
         public:
             const char* what() const throw();
         };
 
-        class GradeTooLowException : std::exception {
+        class GradeTooLowException : public std::exception {
         public:
             const char* what() const throw();
         };

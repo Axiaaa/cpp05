@@ -30,17 +30,17 @@ class Bureaucrat {
         void signForm(AForm &f);
         void executeForm(AForm const & form);
 
-        class GradeTooHighException : std::exception {
-        public:
-            const char* what() const throw();
+        class GradeTooHighException : public std::exception {
+            public:
+                const char* what() const throw();
         };
 
-        class GradeTooLowException : std::exception {
-        public:
-            const char* what() const throw();
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
         };
 
-        class FormNotSigned : std::exception { 
+        class FormNotSigned : public std::exception { 
             public:
                 const char* what() const throw();
         };

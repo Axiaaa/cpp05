@@ -3,9 +3,9 @@
 
 
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm(25, 5, "default", "default target") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm(72, 45, "default", "default target") {}
 
-RobotomyRequestForm::RobotomyRequestForm(string target) : AForm(25, 5, "RobotomyRequestForm", target) {}
+RobotomyRequestForm::RobotomyRequestForm(string target) : AForm(72, 45, "RobotomyRequestForm", target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {};
 
@@ -30,8 +30,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     for (int i = 0; i < timesExectued; i++)
         random = rand();
     if (random % 2 == 0) {
-        std::cout << "Randomizing failed ! Get gud\n";
+        std::cout << "robotomy failed ! Get gud\n";
         return ;
     }
-    std::cout << "Randomizing was successful, you are now a random mess\n";
+    std::cout << "robotomy was successful, you are now a robot\n";
 }

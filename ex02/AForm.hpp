@@ -21,13 +21,13 @@ class AForm {
     
     AForm(short signGrade, short execGrade, string name, string target);
     virtual ~AForm();
-    void beSigned(Bureaucrat &b);
-    short getSigneGrade() const;
-    short getExecGrade()const ;
-    string getName() const ;
-    string getTarget() const;
-    bool getFormState() const;
-    void setSignature(bool state);
+    void    beSigned(const Bureaucrat &b);
+    short   getSigneGrade() const;
+    short   getExecGrade()const ;
+    string  getName() const ;
+    string  getTarget() const;
+    bool    getFormState() const;
+    void    setSignature(bool state);
     virtual void execute(Bureaucrat const & executor) const = 0;
 
     class GradeTooHighException : std::exception {

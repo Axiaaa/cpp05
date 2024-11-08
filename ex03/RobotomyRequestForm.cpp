@@ -3,9 +3,9 @@
 
 
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm(25, 5, "default", "default target") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm(72, 45, "default", "default target") {}
 
-RobotomyRequestForm::RobotomyRequestForm(string target) : AForm(25, 5, "RobotomyRequestForm", target) {}
+RobotomyRequestForm::RobotomyRequestForm(string target) : AForm(72, 45, "RobotomyRequestForm", target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {};
 

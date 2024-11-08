@@ -13,10 +13,11 @@ const char* AForm::GradeTooLowException::what() const throw() {
     return "The AForm grade is too low !\n";
 }
 
-void AForm::beSigned(Bureaucrat &b) { 
+void AForm::beSigned(const Bureaucrat &b) { 
     if (b.getGrade() > this->_signGrade)
-        throw GradeTooLowException();
-    this->_isSigned = true;
+        throw AForm::GradeTooLowException();
+    if (this->_isSigned == false)
+        this->_isSigned = true;
 }
 
 short AForm::getExecGrade()     const { return this->_execGrade; }
@@ -24,8 +25,6 @@ short AForm::getSigneGrade()    const { return this->_signGrade; }
 bool AForm::getFormState()      const { return this->_isSigned; }
 string AForm::getTarget()       const { return this->_target; }
 string AForm::getName()         const { return this->_name; }
-
-
 
 std::ostream &operator<<(std::ostream& os, AForm const &x) {
     os << "The AForm " << x.getName() << " requires grade " << x.getSigneGrade() << " to be signed and grade " << x.getExecGrade() << " to be executed. ";
